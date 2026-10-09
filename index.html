@@ -1,0 +1,527 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Shop bestsellers, new releases, programming classics, and award-winning fiction at Amazon Books. Fast, FREE delivery with Prime and 30-day easy returns.">
+  <meta name="keywords" content="Amazon Books, buy books online, bestsellers, clean code, atomic habits, kindle books, paperbacks, order books">
+  <title>Amazon.com: Books: Bestsellers, New Releases, Programming, Fiction &amp; More</title>
+  
+  <!-- Modern Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Merriweather:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+  
+  <!-- Stylesheet -->
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- ==========================================================================
+       1. MAIN AMAZON TOP NAVIGATION
+       ========================================================================== -->
+  <header>
+    <nav class="amz-navbar" aria-label="Amazon Main Navigation">
+      <!-- Amazon Logo -->
+      <a href="index.html" class="amz-logo-link" aria-label="Amazon Books Home">
+        <div class="amz-logo-svg">
+          <svg width="97" height="30" viewBox="0 0 97 30" fill="none">
+            <!-- Amazon Text & Smile -->
+            <path d="M47.7 21.2c-5.8 4.3-14.2 6.5-21.4 6.5-10.1 0-19.1-3.7-25.9-9.9-.5-.5-.1-1.1.6-.8 7.3 4.3 16.3 6.8 25.4 6.8 6.4 0 13.9-1.6 20.7-5 1-.5 1.8.6.6 1.4z" fill="#FF9900"/>
+            <path d="M49.2 19.3c-.8-1-5.1-.5-7.1-.2-.6.1-.7-.4-.2-.8 3.3-2.3 8.7-1.6 9.4-.7.7.9-.2 6.3-3.3 8.8-.5.4-.9.2-.7-.3.7-1.9 2.7-5.8 1.9-6.8z" fill="#FF9900"/>
+            <path d="M14.6 15.3c0 2.2-.2 4-1.8 5.6-1.5 1.5-3.5 2.1-5.5 2.1-4.2 0-6.6-2.9-6.6-7.1 0-4.6 3-7.5 7.2-7.5 1.8 0 3.6.7 4.9 2V3.4l4.5-.4v16.1h-4.3v-2.3l1.6-1.5zm-4.3 4.3c1.7 0 2.8-1.5 2.8-3.7 0-2.4-1.2-3.8-2.8-3.8-1.6 0-2.8 1.4-2.8 3.8 0 2.2 1.1 3.7 2.8 3.7z" fill="#FFFFFF"/>
+            <path d="M30.4 22.7h-4.4v-9.3c0-2.3-.6-3.3-2.1-3.3-1.4 0-2.4 1-2.9 2.3v10.3h-4.4V8.8h4.2v1.8c1-1.3 2.5-2.1 4.5-2.1 3 0 5.1 1.9 5.1 5.4v8.8z" fill="#FFFFFF"/>
+            <path d="M44.7 15.8c0 4.5-3.3 7.2-7.4 7.2-4.1 0-7.3-2.8-7.3-7.2 0-4.4 3.2-7.2 7.3-7.2 4.2 0 7.4 2.8 7.4 7.2zm-4.4 0c0-2.5-1.2-4-3-4s-3 1.5-3 4 1.2 4 3 4 3-1.5 3-4z" fill="#FFFFFF"/>
+          </svg>
+        </div>
+        <span class="books-pill">books</span>
+      </a>
+
+      <!-- Deliver To Location -->
+      <div class="nav-item nav-deliver" onclick="storeApp.openLocationModal()" title="Change delivery address">
+        <svg viewBox="0 0 24 24">
+          <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/>
+        </svg>
+        <div>
+          <div class="nav-subline">Deliver to Alex</div>
+          <div class="nav-mainline" id="navDeliverLocationText">Seattle 98101</div>
+        </div>
+      </div>
+
+      <!-- Search Bar -->
+      <div class="amz-search-container">
+        <select class="search-category-select" id="searchCategorySelect" aria-label="Select Category">
+          <option value="all">All Books</option>
+          <option value="tech">Programming &amp; Tech</option>
+          <option value="self-help">Self-Help &amp; Mindset</option>
+          <option value="business">Business &amp; Finance</option>
+          <option value="scifi">Sci-Fi &amp; Fantasy</option>
+          <option value="fiction">Fiction &amp; Novels</option>
+        </select>
+        <input 
+          type="text" 
+          class="search-input-box" 
+          id="navSearchInput" 
+          placeholder="Search Amazon Books by title, author, or keyword (e.g., Clean Code, Atomic Habits)..."
+          autocomplete="off"
+        >
+        <button class="search-clear-btn" id="searchClearBtn" title="Clear search">✕</button>
+        <button class="search-submit-btn" id="searchSubmitBtn" aria-label="Go">
+          <svg viewBox="0 0 24 24">
+            <path d="M15.5 14h-.79l-.28-.27C15.41 12.59 16 11.11 16 9.5 16 5.91 13.09 3 9.5 3S3 5.91 3 9.5 5.91 16 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z"/>
+          </svg>
+        </button>
+      </div>
+
+      <!-- Language Selector -->
+      <div class="nav-item nav-lang" title="Choose language">
+        <span>🇺🇸</span>
+        <span>EN ▾</span>
+      </div>
+
+      <!-- Account & Lists -->
+      <div class="nav-item nav-account" onclick="storeApp.showToast('Signed in as Alex Johnson (Prime Member)')" title="Your Account">
+        <span class="nav-subline">Hello, Alex</span>
+        <span class="nav-mainline">Account &amp; Lists ▾</span>
+      </div>
+
+      <!-- Returns & Orders -->
+      <div class="nav-item nav-orders" onclick="storeApp.openOrdersModal()" title="View your past orders & live tracking">
+        <span class="nav-subline">Returns</span>
+        <span class="nav-mainline">&amp; Orders</span>
+      </div>
+
+      <!-- Cart Button -->
+      <div class="nav-item nav-cart-btn" onclick="storeApp.openCart()" title="View your shopping cart">
+        <div class="cart-icon-wrapper">
+          <svg class="cart-icon-svg" viewBox="0 0 38 28">
+            <path d="M36.3 5.8H9.9L8.4 1.1H1.5C.7 1.1 0 1.8 0 2.6s.7 1.5 1.5 1.5h5.1l5.4 17.1c.3.8 1 1.4 1.9 1.4h20.6c.8 0 1.5-.7 1.5-1.5s-.7-1.5-1.5-1.5H15.1l-1-3.1h19.5c.8 0 1.4-.5 1.5-1.3l2.2-9.4c.2-.9-.4-1.5-1-1.5zm-5.7 17.5c-1.5 0-2.8 1.3-2.8 2.8 0 1.5 1.3 2.8 2.8 2.8 1.5 0 2.8-1.3 2.8-2.8 0-1.5-1.2-2.8-2.8-2.8zm-16.1 0c-1.5 0-2.8 1.3-2.8 2.8 0 1.5 1.3 2.8 2.8 2.8 1.5 0 2.8-1.3 2.8-2.8 0-1.5-1.3-2.8-2.8-2.8z"/>
+          </svg>
+          <span class="cart-badge-count" id="navCartCount">1</span>
+        </div>
+        <span class="cart-label">Cart</span>
+      </div>
+    </nav>
+
+    <!-- ==========================================================================
+         2. SECONDARY SUBNAV BAR
+         ========================================================================== -->
+    <div class="amz-subnav">
+      <div class="subnav-left">
+        <button class="subnav-link subnav-menu-btn" onclick="storeApp.openSideMenu()">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="#fff">
+            <path d="M3 18h18v-2H3v2zm0-5h18v-2H3v2zm0-7v2h18V6H3z"/>
+          </svg>
+          All
+        </button>
+        <a href="javascript:void(0)" class="subnav-link active" onclick="storeApp.setCategory('all')">Books Home</a>
+        <a href="javascript:void(0)" class="subnav-link" onclick="storeApp.setCategory('all')">Best Sellers</a>
+        <a href="javascript:void(0)" class="subnav-link" onclick="storeApp.setCategory('tech')">Programming &amp; CS</a>
+        <a href="javascript:void(0)" class="subnav-link" onclick="storeApp.setCategory('self-help')">Self-Help &amp; Growth</a>
+        <a href="javascript:void(0)" class="subnav-link" onclick="storeApp.setCategory('business')">Business &amp; Finance</a>
+        <a href="javascript:void(0)" class="subnav-link" onclick="storeApp.setCategory('scifi')">Sci-Fi &amp; Fantasy</a>
+        <a href="javascript:void(0)" class="subnav-link" onclick="storeApp.setCategory('fiction')">Fiction</a>
+        <a href="javascript:void(0)" class="subnav-link" onclick="storeApp.openOrdersModal()">Track Orders</a>
+      </div>
+
+      <div class="subnav-right">
+        <span class="promo-pill-banner">Coupon: BOOK20 (20% OFF)</span>
+        <span style="font-size: 12px; color: #febd69; font-weight: 700;">Amazon Prime Fast Delivery</span>
+      </div>
+    </div>
+  </header>
+
+  <!-- ==========================================================================
+       3. HERO PROMOTIONAL BANNER SECTION
+       ========================================================================== -->
+  <main>
+    <section class="hero-wrapper">
+      <div class="hero-banner" style="background-image: url('assets/hero-banner.jpg');">
+        <div class="hero-overlay"></div>
+        <div class="hero-content">
+          <span class="hero-badge">⭐ Amazon Books Gala 2026</span>
+          <h1 class="hero-title">Expand Your Mind. Master Any Skill.</h1>
+          <p class="hero-subtitle">
+            Immerse yourself in top-rated books on Software Engineering, High Performance, Finance, and Epic Sci-Fi. Get FREE One-Day Delivery with Prime.
+          </p>
+          <div class="hero-actions">
+            <button class="btn-hero-primary" onclick="storeApp.setCategory('tech')">
+              Explore Tech &amp; Programming
+            </button>
+            <button class="btn-hero-secondary" onclick="storeApp.setCategory('self-help')">
+              Browse Best Sellers
+            </button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 4 Featured Floating Cards on Hero -->
+    <section class="hero-cards-grid">
+      <div class="promo-card">
+        <div>
+          <h3 class="promo-card-title">Top Tech Best Seller</h3>
+          <div class="promo-card-content">
+            <div class="promo-mini-cover" style="background: linear-gradient(135deg, #11998e, #38ef7d); color:#fff; font-size:9px; padding:6px; font-weight:bold; display:flex; align-items:center; text-align:center;">
+              CLEAN CODE
+            </div>
+            <div class="promo-card-details">
+              <h4>Clean Code</h4>
+              <p>by Robert C. Martin</p>
+              <strong style="color: var(--amz-red); font-size: 15px;">$34.50</strong>
+            </div>
+          </div>
+        </div>
+        <a href="javascript:void(0)" class="promo-card-link" onclick="storeApp.openBookDetail('amz-002')">
+          Look Inside &amp; Order &rsaquo;
+        </a>
+      </div>
+
+      <div class="promo-card">
+        <div>
+          <h3 class="promo-card-title">#1 Global Best Seller</h3>
+          <div class="promo-card-content">
+            <div class="promo-mini-cover" style="background: linear-gradient(135deg, #1b2838, #2a475e); color:#fff; font-size:9px; padding:6px; font-weight:bold; display:flex; align-items:center; text-align:center;">
+              ATOMIC HABITS
+            </div>
+            <div class="promo-card-details">
+              <h4>Atomic Habits</h4>
+              <p>by James Clear</p>
+              <strong style="color: var(--amz-red); font-size: 15px;">$14.99</strong>
+            </div>
+          </div>
+        </div>
+        <a href="javascript:void(0)" class="promo-card-link" onclick="storeApp.openBookDetail('amz-001')">
+          Look Inside &amp; Order &rsaquo;
+        </a>
+      </div>
+
+      <div class="promo-card">
+        <div>
+          <h3 class="promo-card-title">Sci-Fi Masterpiece</h3>
+          <div class="promo-card-content">
+            <div class="promo-mini-cover" style="background: linear-gradient(135deg, #0f2027, #2c5364); color:#fff; font-size:9px; padding:6px; font-weight:bold; display:flex; align-items:center; text-align:center;">
+              HAIL MARY
+            </div>
+            <div class="promo-card-details">
+              <h4>Project Hail Mary</h4>
+              <p>by Andy Weir</p>
+              <strong style="color: var(--amz-red); font-size: 15px;">$15.20</strong>
+            </div>
+          </div>
+        </div>
+        <a href="javascript:void(0)" class="promo-card-link" onclick="storeApp.openBookDetail('amz-005')">
+          Look Inside &amp; Order &rsaquo;
+        </a>
+      </div>
+
+      <div class="promo-card">
+        <div>
+          <h3 class="promo-card-title">Deal of the Day</h3>
+          <div class="promo-card-content">
+            <div class="promo-mini-cover" style="background: linear-gradient(135deg, #000428, #004e92); color:#fff; font-size:9px; padding:6px; font-weight:bold; display:flex; align-items:center; text-align:center;">
+              ZERO TO ONE
+            </div>
+            <div class="promo-card-details">
+              <h4>Zero to One</h4>
+              <p>by Peter Thiel</p>
+              <strong style="color: var(--amz-red); font-size: 15px;">$13.50 <span style="font-size:11px; color:#cc0c39;">(50% off)</span></strong>
+            </div>
+          </div>
+        </div>
+        <a href="javascript:void(0)" class="promo-card-link" onclick="storeApp.openBookDetail('amz-011')">
+          Look Inside &amp; Order &rsaquo;
+        </a>
+      </div>
+    </section>
+
+    <!-- ==========================================================================
+         4. MAIN STORE CATALOG & FILTER TOOLBAR
+         ========================================================================== -->
+    <section class="main-store-container">
+      <!-- Filter and Sort Strip -->
+      <div class="filter-strip">
+        <div class="category-chips" id="categoryChipsContainer">
+          <!-- Dynamically populated category chips -->
+        </div>
+
+        <div class="sort-and-results">
+          <div class="results-count-text" id="resultsCountDisplay">
+            Showing 1-16 results
+          </div>
+          <div class="sort-select-wrapper">
+            <label for="sortBooksSelect">Sort by:</label>
+            <select class="sort-select" id="sortBooksSelect">
+              <option value="featured">Featured</option>
+              <option value="price-low">Price: Low to High</option>
+              <option value="price-high">Price: High to Low</option>
+              <option value="rating">Avg. Customer Review</option>
+              <option value="reviews">Most Reviewed</option>
+            </select>
+          </div>
+        </div>
+      </div>
+
+      <!-- Books Grid (Loaded dynamically from app.js) -->
+      <div class="books-grid" id="booksGrid">
+        <!-- Rendered by app.js -->
+      </div>
+    </section>
+  </main>
+
+  <!-- ==========================================================================
+       5. SLIDE-IN CART DRAWER (RIGHT PANEL)
+       ========================================================================== -->
+  <div class="cart-drawer-overlay" id="cartDrawerOverlay" onclick="storeApp.closeCart()">
+    <aside class="cart-drawer" onclick="event.stopPropagation()" aria-label="Shopping Cart">
+      <!-- Cart Header -->
+      <div class="cart-header">
+        <h3>
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="#fff">
+            <path d="M7 18c-1.1 0-1.99.9-1.99 2S5.9 22 7 22s2-.9 2-2-.9-2-2-2zm10 0c-1.1 0-1.99.9-1.99 2s.89 2 1.99 2 2-.9 2-2-.9-2-2-2zm-9.83-3.25l.03-.12.9-1.63h7.45c.75 0 1.41-.41 1.75-1.03l3.86-7.01L19.42 4l-3.86 7H8.53L4.27 2H1v2h2l3.6 7.59-1.35 2.45c-.16.28-.25.61-.25.96 0 1.1.9 2 2 2h12v-2H7.42c-.13 0-.25-.11-.25-.25z"/>
+          </svg>
+          Your Amazon Cart
+        </h3>
+        <button class="cart-close-btn" onclick="storeApp.closeCart()" title="Close cart">✕</button>
+      </div>
+
+      <!-- Free Shipping Progress Tracker -->
+      <div class="free-shipping-bar-box">
+        <div class="free-shipping-text" id="freeShippingTextMsg">
+          Add $25.00 more for <strong>FREE Delivery</strong>
+        </div>
+        <div class="progress-track">
+          <div class="progress-fill" id="freeShippingProgressFill" style="width: 30%;"></div>
+        </div>
+      </div>
+
+      <!-- Cart Items List -->
+      <div class="cart-items-container" id="cartItemsContainer">
+        <!-- Rendered by app.js -->
+      </div>
+
+      <!-- Cart Footer / Checkout -->
+      <div class="cart-footer">
+        <div class="cart-subtotal-row">
+          <span>Subtotal:</span>
+          <strong id="cartSubtotalAmount">$0.00</strong>
+        </div>
+
+        <!-- Promo Code Input -->
+        <div class="promo-input-row">
+          <input type="text" id="promoCodeInput" placeholder="Promo code (BOOK20)">
+          <button class="promo-apply-btn" onclick="storeApp.applyPromoCode()">Apply</button>
+        </div>
+
+        <button class="amz-btn btn-buy-now" style="padding: 12px; font-size: 15px;" onclick="storeApp.openCheckout()">
+          Proceed to Checkout
+        </button>
+      </div>
+    </aside>
+  </div>
+
+  <!-- ==========================================================================
+       6. 1-CLICK AMAZON CHECKOUT MODAL
+       ========================================================================== -->
+  <div class="amz-modal-overlay" id="checkoutModal">
+    <div class="amz-modal-box checkout-modal-box" onclick="event.stopPropagation()">
+      <div class="modal-header">
+        <h3>
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="#fff">
+            <path d="M18 8h-1V6c0-2.76-2.24-5-5-5S7 3.24 7 6v2H6c-1.1 0-2 .9-2 2v10c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2V10c0-1.1-.9-2-2-2zm-6 9c-1.1 0-2-.9-2-2s.9-2 2-2 2 .9 2 2-.9 2-2 2zm3.1-9H8.9V6c0-1.71 1.39-3.1 3.1-3.1 1.71 0 3.1 1.39 3.1 3.1v2z"/>
+          </svg>
+          Amazon Secure Checkout
+        </h3>
+        <button class="modal-close-btn" onclick="storeApp.closeCheckout()">✕</button>
+      </div>
+      <div class="modal-body" id="checkoutStepsContainer">
+        <!-- Filled dynamically by app.js -->
+      </div>
+    </div>
+  </div>
+
+  <!-- ==========================================================================
+       7. LOOK INSIDE & BOOK DETAIL MODAL
+       ========================================================================== -->
+  <div class="amz-modal-overlay" id="bookDetailModal">
+    <div class="amz-modal-box" onclick="event.stopPropagation()">
+      <div class="modal-header">
+        <h3>📖 Amazon Books Look Inside &amp; Details</h3>
+        <button class="modal-close-btn" onclick="storeApp.closeBookDetail()">✕</button>
+      </div>
+      <div class="modal-body" id="bookDetailModalBody">
+        <!-- Filled dynamically by app.js -->
+      </div>
+    </div>
+  </div>
+
+  <!-- ==========================================================================
+       8. RETURNS & ORDERS MANAGEMENT MODAL
+       ========================================================================== -->
+  <div class="amz-modal-overlay" id="ordersModal">
+    <div class="amz-modal-box orders-management-box" onclick="event.stopPropagation()">
+      <div class="modal-header">
+        <h3>📦 Your Amazon Orders &amp; Package Tracking</h3>
+        <button class="modal-close-btn" onclick="storeApp.closeOrdersModal()">✕</button>
+      </div>
+      <div class="modal-body">
+        <div class="orders-nav-tabs">
+          <button class="orders-tab-btn active">Your Orders</button>
+          <button class="orders-tab-btn" onclick="storeApp.showToast('Showing active shipments')">Buy Again</button>
+          <button class="orders-tab-btn" onclick="storeApp.showToast('No not-yet-shipped orders')">Not Yet Shipped</button>
+          <button class="orders-tab-btn" onclick="storeApp.showToast('No cancelled orders')">Cancelled Orders</button>
+        </div>
+        <div class="orders-list-view" id="ordersListContainer">
+          <!-- Rendered by app.js -->
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ==========================================================================
+       9. SLIDE-IN HAMBURGER SIDE MENU ("ALL" MENU)
+       ========================================================================== -->
+  <div class="side-menu-overlay" id="sideMenuOverlay" onclick="storeApp.closeSideMenu()">
+    <div class="side-menu-panel" onclick="event.stopPropagation()">
+      <div class="side-menu-header">
+        <div class="side-user-avatar">👤</div>
+        <h3>Hello, Alex</h3>
+      </div>
+      <button class="side-menu-close-btn" onclick="storeApp.closeSideMenu()">✕</button>
+
+      <div class="side-menu-content">
+        <div class="side-menu-section">
+          <div class="side-menu-title">Digital Content &amp; Devices</div>
+          <div class="side-menu-item" onclick="storeApp.setCategory('tech'); storeApp.closeSideMenu();">
+            <span>Kindle E-readers &amp; Books</span> <span>›</span>
+          </div>
+          <div class="side-menu-item" onclick="storeApp.setCategory('self-help'); storeApp.closeSideMenu();">
+            <span>Audible Audiobooks</span> <span>›</span>
+          </div>
+          <div class="side-menu-item" onclick="storeApp.showToast('Prime Reading Library opened'); storeApp.closeSideMenu();">
+            <span>Amazon Prime Reading</span> <span>›</span>
+          </div>
+        </div>
+
+        <div class="side-menu-section">
+          <div class="side-menu-title">Shop by Book Category</div>
+          <div class="side-menu-item" onclick="storeApp.setCategory('all'); storeApp.closeSideMenu();">
+            <span>All Books &amp; Bestsellers</span> <span>›</span>
+          </div>
+          <div class="side-menu-item" onclick="storeApp.setCategory('tech'); storeApp.closeSideMenu();">
+            <span>Computer Science &amp; Tech</span> <span>›</span>
+          </div>
+          <div class="side-menu-item" onclick="storeApp.setCategory('self-help'); storeApp.closeSideMenu();">
+            <span>Self-Help &amp; Mindset</span> <span>›</span>
+          </div>
+          <div class="side-menu-item" onclick="storeApp.setCategory('business'); storeApp.closeSideMenu();">
+            <span>Business, Startups &amp; Money</span> <span>›</span>
+          </div>
+          <div class="side-menu-item" onclick="storeApp.setCategory('scifi'); storeApp.closeSideMenu();">
+            <span>Sci-Fi &amp; Fantasy</span> <span>›</span>
+          </div>
+          <div class="side-menu-item" onclick="storeApp.setCategory('fiction'); storeApp.closeSideMenu();">
+            <span>Literature &amp; Fiction</span> <span>›</span>
+          </div>
+        </div>
+
+        <div class="side-menu-section">
+          <div class="side-menu-title">Help &amp; Settings</div>
+          <div class="side-menu-item" onclick="storeApp.openOrdersModal(); storeApp.closeSideMenu();">
+            <span>Your Orders &amp; Returns</span> <span>›</span>
+          </div>
+          <div class="side-menu-item" onclick="storeApp.openLocationModal(); storeApp.closeSideMenu();">
+            <span>Manage Delivery Addresses</span> <span>›</span>
+          </div>
+          <div class="side-menu-item" onclick="storeApp.showToast('Customer service 24/7 online'); storeApp.closeSideMenu();">
+            <span>Customer Service</span> <span>›</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ==========================================================================
+       10. FLOATING TOAST NOTIFICATION CONTAINER
+       ========================================================================== -->
+  <div class="toast-container" id="toastContainer" aria-live="polite"></div>
+
+  <!-- ==========================================================================
+       11. AMAZON FOOTER
+       ========================================================================== -->
+  <footer class="amz-footer">
+    <div class="back-to-top-btn" onclick="window.scrollTo({top: 0, behavior: 'smooth'})">
+      Back to top
+    </div>
+
+    <div class="footer-main">
+      <div class="footer-col">
+        <h4>Get to Know Us</h4>
+        <ul>
+          <li><a href="#">About Amazon Books</a></li>
+          <li><a href="#">Careers</a></li>
+          <li><a href="#">Press Releases</a></li>
+          <li><a href="#">Amazon Science</a></li>
+          <li><a href="#">Sustainability</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-col">
+        <h4>Make Money with Us</h4>
+        <ul>
+          <li><a href="#">Sell books on Amazon</a></li>
+          <li><a href="#">Self-publish with Kindle Direct Publishing (KDP)</a></li>
+          <li><a href="#">Become an Affiliate</a></li>
+          <li><a href="#">Advertise Your Books</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-col">
+        <h4>Amazon Payment Products</h4>
+        <ul>
+          <li><a href="#">Amazon Rewards Visa Card</a></li>
+          <li><a href="#">Amazon Pay Balance</a></li>
+          <li><a href="#">Shop with Points</a></li>
+          <li><a href="#">Reload Your Balance</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-col">
+        <h4>Let Us Help You</h4>
+        <ul>
+          <li><a href="javascript:void(0)" onclick="storeApp.openOrdersModal()">Your Orders</a></li>
+          <li><a href="#">Shipping Rates &amp; Policies</a></li>
+          <li><a href="javascript:void(0)" onclick="storeApp.openOrdersModal()">Returns &amp; Replacements</a></li>
+          <li><a href="#">Amazon Assistant</a></li>
+          <li><a href="#">Help &amp; Customer Care</a></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="footer-sub">
+      <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 8px;">
+        <svg width="70" height="22" viewBox="0 0 97 30" fill="none">
+          <path d="M47.7 21.2c-5.8 4.3-14.2 6.5-21.4 6.5-10.1 0-19.1-3.7-25.9-9.9-.5-.5-.1-1.1.6-.8 7.3 4.3 16.3 6.8 25.4 6.8 6.4 0 13.9-1.6 20.7-5 1-.5 1.8.6.6 1.4z" fill="#FF9900"/>
+          <path d="M49.2 19.3c-.8-1-5.1-.5-7.1-.2-.6.1-.7-.4-.2-.8 3.3-2.3 8.7-1.6 9.4-.7.7.9-.2 6.3-3.3 8.8-.5.4-.9.2-.7-.3.7-1.9 2.7-5.8 1.9-6.8z" fill="#FF9900"/>
+          <path d="M14.6 15.3c0 2.2-.2 4-1.8 5.6-1.5 1.5-3.5 2.1-5.5 2.1-4.2 0-6.6-2.9-6.6-7.1 0-4.6 3-7.5 7.2-7.5 1.8 0 3.6.7 4.9 2V3.4l4.5-.4v16.1h-4.3v-2.3l1.6-1.5zm-4.3 4.3c1.7 0 2.8-1.5 2.8-3.7 0-2.4-1.2-3.8-2.8-3.8-1.6 0-2.8 1.4-2.8 3.8 0 2.2 1.1 3.7 2.8 3.7z" fill="#FFFFFF"/>
+          <path d="M30.4 22.7h-4.4v-9.3c0-2.3-.6-3.3-2.1-3.3-1.4 0-2.4 1-2.9 2.3v10.3h-4.4V8.8h4.2v1.8c1-1.3 2.5-2.1 4.5-2.1 3 0 5.1 1.9 5.1 5.4v8.8z" fill="#FFFFFF"/>
+          <path d="M44.7 15.8c0 4.5-3.3 7.2-7.4 7.2-4.1 0-7.3-2.8-7.3-7.2 0-4.4 3.2-7.2 7.3-7.2 4.2 0 7.4 2.8 7.4 7.2zm-4.4 0c0-2.5-1.2-4-3-4s-3 1.5-3 4 1.2 4 3 4 3-1.5 3-4z" fill="#FFFFFF"/>
+        </svg>
+        <span style="border: 1px solid #848688; border-radius: 3px; padding: 2px 8px; font-size: 11px;">🌐 English</span>
+        <span style="border: 1px solid #848688; border-radius: 3px; padding: 2px 8px; font-size: 11px;">$ USD - U.S. Dollar</span>
+        <span style="border: 1px solid #848688; border-radius: 3px; padding: 2px 8px; font-size: 11px;">🇺🇸 United States</span>
+      </div>
+      <div class="footer-sub-links">
+        <a href="#">Conditions of Use</a>
+        <a href="#">Privacy Notice</a>
+        <a href="#">Consumer Health Data Privacy Disclosure</a>
+        <a href="#">Your Ads Privacy Choices</a>
+      </div>
+      <p>© 1996-2026, Amazon.com, Inc. or its affiliates. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <!-- Core Store Script -->
+  <script src="app.js"></script>
+</body>
+</html>
